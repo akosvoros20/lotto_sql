@@ -41,8 +41,11 @@ public class Menu {
 				System.out.print("> "); Scanner sc = new Scanner(System.in);
 					char valasztas = sc.next().charAt(0);		
 						switch(valasztas){
-							case 'A':						
-								sors.sorsolas();
+							case 'A':	
+								if(sors.getId() > 0) {
+									System.out.println("Mar van adat az adatbazisban hasznald a P betut");
+								} else {
+								sors.sorsolas();}
 								break;
 							case 'B':
 								
