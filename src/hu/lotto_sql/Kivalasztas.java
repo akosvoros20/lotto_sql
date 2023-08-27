@@ -14,6 +14,17 @@ public class Kivalasztas {
 	
 	private ArrayList<Integer> elemtmp = new ArrayList();
 	private int[] elemek = new int[3];
+	private int kiirszamlalo;
+	
+	
+
+	public int getKiirszamlalo() {
+		return kiirszamlalo;
+	}
+
+	public void setKiirszamlalo(int kiirszamlalo) {
+		this.kiirszamlalo = kiirszamlalo;
+	}
 
 	public ArrayList<Integer> getElemtmp() {
 		return elemtmp;
@@ -54,6 +65,7 @@ public class Kivalasztas {
 				elemek[i] = elemtmp.get(i);
 			}
 			System.out.println("Az adatok bekerultek a tombbe.");
+			
 		}
 		catch(SQLException e)  {
 			System.out.println("Valami hiba tortent...");
@@ -62,6 +74,9 @@ public class Kivalasztas {
 	
 	public void kiir() {
 		System.out.println("A harom leggyakrabban kihuzott szam: "+Arrays.toString(elemek));
+		Arrays.fill(elemek,0);
+		elemtmp.clear();
+		
 	}
 
 }

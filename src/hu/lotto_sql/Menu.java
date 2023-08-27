@@ -30,6 +30,8 @@ public class Menu {
 		
 		if(menuValaszto.equals("sima")) {
 			boolean exit = false;
+			torles.urites();
+			hiba.uresadatbazis();
 			while(!exit) {
 				System.out.println("Valassz egy menupontot:");
 				System.out.println("A. Lottoszamok huzasa");
@@ -39,7 +41,8 @@ public class Menu {
 				System.out.println("P. Tovabbi sorsolasok");
 				System.out.println("D. Kilepes");
 				System.out.print("> "); Scanner sc = new Scanner(System.in);
-					char valasztas = sc.next().charAt(0);		
+					char valasztas = sc.next().charAt(0);	
+				
 						switch(valasztas){
 							case 'A':	
 								if(sors.getId() > 0) {
@@ -48,17 +51,25 @@ public class Menu {
 								sors.sorsolas();}
 								break;
 							case 'B':
-								
-								kivalaszt.kivalaszt();
+								hiba.uresadatbazis();
+								if(hiba.getAbmeret() == 0) {
+									System.out.println("Meg nincs adat elobb sorsolj elobb...");
+								}
+								else {kivalaszt.kivalaszt();}
 							  break;
 							case 'C':
-								kivalaszt.kiir();
+								if(kivalaszt.getElemtmp().isEmpty()) {
+									System.out.println("Meg nem kerultek kivalasztasra a leggyakoribb szamok...");
+								}else {
+								kivalaszt.kiir();}
 							  break;
 							case 'T':
 								torles.urites();
+								System.out.println("Az adatbazis kiurult");
 								break;
 							case 'P':
-								if(sors.getId() == 0) {
+								hiba.uresadatbazis();
+								if(sors.getId() == 0 || hiba.getAbmeret() == 0) {
 									System.out.println("Meg ures az adatbazis kerem az elso sorsolast hasznalni.");
 								} else {
 								sors.tovabbisorsolas();}

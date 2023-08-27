@@ -15,7 +15,6 @@ public class Kiurit {
 			PreparedStatement preparedStatement = conn.prepareStatement(query1);
 	
 			preparedStatement.executeUpdate();
-			System.out.println("Az adatbazis kiurult...");
 		}
 		catch(SQLException e)  {
 			System.out.println("Csatlakozás nem sikerült");
